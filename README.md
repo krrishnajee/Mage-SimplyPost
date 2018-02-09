@@ -6,3 +6,5 @@ Includes:
 - Order pickup details.
 - Sending order details to SimplyPost on shipment creation, at the same time send an email to the pickup email ID.
 - Showing the Shipment status in order page in admin cms.
+
+`Module path: app/code/local/Mymodule/Simplypost`
