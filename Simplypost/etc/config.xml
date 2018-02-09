@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <modules>
+        <Mymodule_Simplypost>
+            <version>1.0.0</version>
+        </Mymodule_Simplypost>
+    </modules>
+    <global>
+        <models>
+            <simplypost>
+                <class>Mymodule_Simplypost_Model</class>
+            </simplypost>
+        </models>
+        <helpers>
+            <simplypost>
+                <class>Mymodule_Simplypost_Helper</class>
+            </simplypost>
+        </helpers>
+        <blocks>
+            <simplypost>
+                <class>Mymodule_Simplypost_Block</class>
+            </simplypost>
+        </blocks>
+    </global>
+    <adminhtml>
+		<!--call simplypost process before save shipment-->
+        <events>
+            <sales_order_shipment_save_before>
+                <observers>
+                    <create_simplypost>
+                        <type>singleton</type>
+                        <class>simplypost/observer</class>
+                        <method>createSimplypost</method>
+                    </create_simplypost>
+                </observers>
+            </sales_order_shipment_save_before>
+        </events>
+        <!--customize the grid on order view page to show the SimplyPost tracking status-->
+        <events> 
+            <core_block_abstract_to_html_after>
+                <observers>
+                    <simplypost_custom_order_view_info>
+                        <class>simplypost/observer</class>
+                        <method>getSalesOrderViewInfo</method>
+                    </simplypost_custom_order_view_info>
+                </observers>
+            </core_block_abstract_to_html_after>
+        </events>
+        <!--create a custom grid on order view page : app/design/adminhtml/default/default/layout/mymodule_simplypost.xml -->
+        <layout>
+            <updates>
+                <simplypost>
+                    <file>mymodule_simplypost.xml</file>
+                </simplypost>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

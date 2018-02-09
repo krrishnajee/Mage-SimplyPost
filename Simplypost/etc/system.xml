@@ -1,0 +1,179 @@
+<?xml version="1.0" ?>
+<config>
+    <tabs><!-- Create new tab in configurations -->
+        <simplypostconfig translate="label" module="simplypost">
+            <label>Simplypost</label>
+            <sort_order>10</sort_order>
+        </simplypostconfig>
+    </tabs>
+    <sections><!-- Create custom tab with fields to manage SimplyPost credancials in cms -->
+        <simplypost translate="label" module="simplypost">
+            <label>SimplyPost API Details</label>
+            <tab>simplypostconfig</tab>
+            <sort_order>120</sort_order>
+            <frontend_type>text</frontend_type>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>                
+                <general>
+                    <label>General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable translate="label comment">
+                            <label>Enable SimplyPost</label>
+                            <comment>To send orders to Simplypost set to yes.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry</validate>
+                        </enable>
+                        <simplypost_auth_endpoint translate="label comment">
+                            <label>SimplyPost Authentication Endpoint</label>
+                            <comment>SimplyPost Authentication Endpoint url (Eg:- https://app.simplypost.asia/api/gateway/v1/auth/login/).</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>81</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry</validate>
+                            <depends>
+                                <enable>1</enable>
+                            </depends>
+                        </simplypost_auth_endpoint>
+                        <simplypost_login_token translate="label comment">
+                            <label>SimplyPost Login Token</label>
+                            <comment>SimplyPost Login Token (Eg:- Basic bWloYUEerRERereReREREREhwbzEyMw==).</comment> <!-- you can create this by running > window.btoa(your_email + ':' + your_password)-->
+                            <frontend_type>text</frontend_type>
+                            <sort_order>82</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry</validate>
+                            <depends>
+                                <enable>1</enable>
+                            </depends>
+                        </simplypost_login_token>
+                        <simplypost_endpoint translate="label comment">
+                            <label>SimplyPost Endpoint</label>
+                            <comment>SimplyPost Endpoint url (Eg:- https://app.simplypost.asia/api/gateway/v1/deliveries/).</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>83</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry</validate>
+                            <depends>
+                                <enable>1</enable>
+                            </depends>
+                        </simplypost_endpoint>
+                        <simplypost_merchant_code translate="label comment">
+                            <label>SimplyPost Merchant Code</label>
+                            <comment>This Code can be find in https://app.simplypost.asia (Eg:- X0123).</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>84</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry</validate>
+                            <depends>
+                                <enable>1</enable>
+                            </depends>
+                        </simplypost_merchant_code>
+                        <simplypost_service_code translate="label comment">
+                            <label>SimplyPost Service Code</label>
+                            <comment>SimplyPost Delivery Service Code (Eg:- DOMN).</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry</validate>
+                            <depends>
+                                <enable>1</enable>
+                            </depends>
+                        </simplypost_service_code>
+                    </fields>
+                </general>
+				<!-- Order Pickup details -->                
+                <swiftvalue>
+                    <label>Swiftvalue Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>11</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <swiftvalue_contact_name translate="label">
+                            <label>Contact Name</label>
+                            <!--<comment>Helper text.</comment>-->
+                            <frontend_type>text</frontend_type>
+                            <sort_order>81</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry</validate>
+                        </swiftvalue_contact_name>
+                        <swiftvalue_phone_number translate="label comment">
+                            <label>Phone Number</label>
+                            <!--<comment>Helper text.</comment>-->
+                            <frontend_type>text</frontend_type>
+                            <sort_order>82</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry</validate>
+                        </swiftvalue_phone_number>
+                        <swiftvalue_email translate="label comment">
+                            <label>Email</label>
+                            <!--<comment>Helper text.</comment>-->
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-email</validate>
+                            <sort_order>83</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </swiftvalue_email>
+                        <swiftvalue_address translate="label comment">
+                            <label>Address</label>
+                            <!--<comment>Helper text.</comment>-->
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>84</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry</validate>
+                        </swiftvalue_address>
+                        <swiftvalue_postcode translate="label comment">
+                            <label>Postal Code</label>
+                            <!--<comment>Helper text.</comment>-->
+                            <frontend_type>text</frontend_type>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry</validate>
+                        </swiftvalue_postcode>
+                        <swiftvalue_email_template translate="label">
+                            <label>Email Template (Notification)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model> <!-- This template will use on Simplypost confirm mail to the pickup email  -->
+                            <sort_order>86</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry</validate>
+                        </swiftvalue_email_template>
+                    </fields>
+                </swiftvalue>
+            </groups>
+        </simplypost>
+    </sections>
+</config>
